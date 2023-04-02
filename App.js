@@ -1,20 +1,80 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';//Only Android
+import * as ScreenOrientation from 'expo-screen-orientation';
+import { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import Login from './navigation/Login';
+import Register from './navigation/Register';
+import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
+
+/** The Stack Navigator */
+const Stack = createNativeStackNavigator();
+
+const toastConfig = {
+  error: (props) => ( 
+    <ErrorToast
+    {...props}
+    text1Style={{
+      fontSize: 18,
+    }}
+    text2Style={{
+      fontSize: 14,
+    }}
+    style={{ borderLeftColor: 'red' }}
+    /> 
+  ),
+  success: (props) => (
+    <BaseToast
+    {...props}
+    text1Style={{
+      fontSize: 18,
+    }}
+    text2Style={{
+      fontSize: 14,
+    }}
+    style={{ borderLeftColor: 'green' }}
+    />
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+/** The app function is the main function of the app 
+ * It is called when the app is loaded.
+ * Create a Stack Navigator and add the HomeScreen to it.
+ * @returns The app function
+*/
+export default function App() {
+
+  useEffect(() => {
+    lockScreenOrientation();
+    hideNavigationBar();
+  }, []);
+
+  /** Lock the screen orientation to portrait */
+  async function lockScreenOrientation() {
+    await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+  }
+
+  /** Hide the navigation bar */
+  async function hideNavigationBar() {
+    //NavigationBar.setVisibilityAsync("hidden");
+  }
+
+  return (
+    <NavigationContainer>
+      <StatusBar style="auto" hidden/>
+
+      <SafeAreaProvider>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name='Register' component={Register} options={{ headerShown: false }} />
+        </Stack.Navigator>
+        
+        <Toast config={toastConfig}/>
+      </SafeAreaProvider>
+    </NavigationContainer>
+  );
+}
