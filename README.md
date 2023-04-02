@@ -2,21 +2,22 @@
 
 🚀 Este proyecto fue creado para el evento "Hack The Future" y se desarrolló en un día. La aplicación móvil fue diseñada para una comunidad local que se dedica a la creación de artesanías y que recibe turistas que visitan la zona.
 
-🎨 El objetivo principal de esta aplicación es impulsar la economía local y ayudar a los artesanos locales a promocionar y vender sus productos a los turistas a través de una plataforma digital.
+## Requisitos del sistema
 
-## Dependencias y estructura del proyecto
+Para ejecutar la aplicación en un entorno de desarrollo en Windows, se requiere lo siguiente:
 
-- React Native: 0.64.0
-- React Navigation: 5.9.4
-- Firebase: 8.2.1
+- Sistema operativo: Windows 10 (64 bits) o superior
+- Procesador: Intel Core i3 o equivalente
+- RAM: 4 GB o superior
+- Espacio en disco duro: 2 GB de espacio libre
+- Node.js: v14.x.x o superior
+- NPM: v7.x.x o superior
+- Expo-cli
+- Visual Studio Code (opcional)
 
-La estructura del proyecto se divide en varias secciones:
+También se recomienda contar con un dispositivo móvil Android o un emulador de Android configurado en Android Studio para probar la aplicación. 
 
-- **Pantalla de inicio**: Presenta un banner con una imagen del pueblo y una breve descripción. También hay botones para acceder a la tienda y al perfil del usuario.
-
-- **Tienda**: Aquí los usuarios pueden ver los productos disponibles y filtrarlos por categoría. Al hacer clic en un producto, pueden ver más detalles y realizar una reserva.
-
-- **Perfil del usuario**: Aquí los usuarios pueden ver sus reservas, información personal y actualizar su información de contacto.
+Adjunto el .apk en la carpeta build para instalar directamente en un dispositivo.
 
 ## Cómo probar la aplicación
 
@@ -25,11 +26,19 @@ Para probar la aplicación, sigue los siguientes pasos:
 1. Clona el repositorio en tu computadora.
 2. Abre una terminal y navega hasta el directorio del proyecto.
 3. Instala las dependencias con `npm install`.
-4. Crea una cuenta en Firebase y crea un proyecto. Luego, agrega las credenciales de Firebase a la aplicación.
 5. Inicia la aplicación con `npm start` o `expo start`.
 6. Abre la aplicación en tu dispositivo móvil usando Expo.
 
-¡Gracias por visitar nuestro proyecto! Esperamos que te haya gustado. 😊
+¡Gracias por visitar mi proyecto! Esperamos que te haya gustado. 😊
+
+## Aviso
+
+El proyecto tiene el 48% de funcionalidades y requisitos que pedía el reto
+
+Los incisos mencionados a continuación fueron realizados hasta el 1 de abril 23:53:
+Artesano (1, 2, 5, 6, 7), Turista (1, 2), Evaluacion(1, 2)
+
+Delimito esto porque pienso terminarlo, debido a que mi autoestima se vió reducido en un 90% por no haber terminado. 😔
 
 ## Hashtags
 
