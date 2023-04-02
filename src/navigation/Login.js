@@ -2,20 +2,27 @@ import { Text, View, StyleSheet, ScrollView, ActivityIndicator } from 'react-nat
 import { useForm, Controller } from 'react-hook-form';
 import { Button, Divider } from '@rneui/base';
 import { Image, SocialIcon } from '@rneui/themed';
-import InputForm from '../components/InputForm';
+import InputForm from '../components/InputForm.js';
 import { useState } from 'react';
 import Toast from 'react-native-toast-message';
 
 import { fetchLogin } from '../api/fetching';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAsyncToken, selectToken } from '../redux/variables/tokenSlice.js';
+
+// const jwt = require('jsonwebtoken');
 
 /** The Login Screen
  * @param {Object} navigation - The navigation object
  * @returns The Login Screen */
 export default function Login({ navigation }) {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+  // const decToken = token ? jwt.decode(token.token) : null;
+
   const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
-      username: 'atuny0',
-      password: '9uQFF1Lh'
+      // username: decToken ? decToken.username : '',
     }
   }); // initialise the hook
   const [loading, setLoading] = useState(false); // Loading state [boolean]
@@ -28,13 +35,13 @@ export default function Login({ navigation }) {
     setLoading(true);
     fetchLogin(data.username, data.password)
     .then(response => {
-      console.log(response);
-      setLoading(false);
       Toast.show({
         type: 'success',
         text1: 'Perfecto',
         text2: 'Inicio de sesión exitoso',
       });
+      dispatch(setAsyncToken(response.token));
+      navigation.replace('HomeA');
     })
     .catch(error => {
       setLoading(false);

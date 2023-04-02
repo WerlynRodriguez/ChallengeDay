@@ -23,7 +23,7 @@ const InputForm = ({
         name={name}
         render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
             <Input
-            maxLength={rules.maxLength.value}
+            maxLength={rules?.maxLength?.value}
             keyboardType={keyboardType}
             placeholder={placeholder}
             leftIcon={icon}
