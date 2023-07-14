@@ -29,7 +29,7 @@ Para probar la aplicación, sigue los siguientes pasos:
 5. Inicia la aplicación con `npm start` o `expo start`.
 6. Abre la aplicación en tu dispositivo móvil usando Expo.
 
-¡Gracias por visitar mi proyecto! Esperamos que te haya gustado. 😊
+¡Gracias por visitar mi proyecto! Espero que te haya gustado. 😊
 
 ## Aviso
 
@@ -37,8 +37,6 @@ El proyecto tiene el 48% de funcionalidades y requisitos que pedía el reto
 
 Los incisos mencionados a continuación fueron realizados hasta el 1 de abril 23:53:
 Artesano (1, 2, 5, 6, 7), Turista (1, 2), Evaluacion(1, 2)
-
-Delimito esto porque pienso terminarlo, debido a que mi autoestima se vió reducido en un 90% por no haber terminado. 😔
 
 ## Hashtags
 
